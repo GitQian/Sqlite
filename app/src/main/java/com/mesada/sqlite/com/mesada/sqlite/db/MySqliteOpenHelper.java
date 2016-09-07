@@ -13,8 +13,8 @@ public class MySqliteOpenHelper extends SQLiteOpenHelper{
 
     private static MySqliteOpenHelper instance;
 
-    public static final String userInfoSql = "create table User(id integer primary key autoincrement, user varchar, phone varchar)";
-    public static final String customerInfoSql = "create table Book(id integer primary key autoincrement, customer varchar, phone varchar)";
+    public static final String userInfoSql = "create table UserTable(id integer primary key autoincrement, user varchar, phone varchar)";
+    public static final String customerInfoSql = "create table BookTable(id integer primary key autoincrement, customer varchar, phone varchar)";
 
     private MySqliteOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
