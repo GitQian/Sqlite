@@ -25,11 +25,13 @@ public class UserInfoDAL {
         return 0;
     }
 
-    public String getUser(String name) {
-        Cursor cursor = db.query("UserTable", null, null, null, null, null, null);
+    public String getUserPhone(String name) {
+        Cursor cursor = db.query("UserTable", new String []{"phone"}, "user = ?", new String[]{name}, null, null, null);
         String phone = null;
         if (cursor.moveToFirst()) {
-            phone = cursor.getString(cursor.getColumnIndex("phone"));
+            do {
+                phone = cursor.getString(cursor.getColumnIndex("phone"));
+            } while (cursor.moveToNext());
         }
 
         cursor.close();
